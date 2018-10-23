@@ -8,7 +8,8 @@ use Symm\Config;
 $client = Config::getConnection('CHICKEN-CONSUMER');
 
 $stomp = new StatefulStomp($client);
-$stomp->subscribe(Config::QUEUE_NAME);
+// TODO: how to read virutal topic queue
+$stomp->subscribe(Config::TOPIC_NAME);
 
 while(true) {
     $message = $stomp->read();

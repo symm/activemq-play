@@ -14,7 +14,7 @@ while (true) {
     $synchronous = true;
     $header = [];
 
-    $client->send(Config::QUEUE_NAME, $message, $header, $synchronous);
+    $client->send(Config::TOPIC_NAME, $message, $header, $synchronous);
     //$stomp->send('another-queue', 'hi', $header, $synchronous);
 
     print '.';

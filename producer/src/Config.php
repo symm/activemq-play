@@ -9,7 +9,9 @@ class Config
     public const USERNAME = 'admin';
     public const PASSWORD = 'admin';
 
-    public const QUEUE_NAME = 'SomeQueueName';
+    public const TOPIC_NAME = '/topic/VirtualTopic.Orders';
+
+    public const QUEUE_NAME = '/queue/SomeQueue';
 
     public const PRIMARY_SERVER = 'tcp://localhost:61613';
 
