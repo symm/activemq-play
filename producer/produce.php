@@ -2,22 +2,21 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Stomp\Client;
 use Symm\Config;
 
-$stomp = new Client(Config::getConnectionString());
-$stomp->setLogin(Config::USERNAME, Config::PASSWORD);
-$stomp->setClientId('CHICKEN-PRODUCER');
+$client = Config::getConnection('CHICKEN-PRODUCER');
 
 while (true) {
     $message = \json_encode([
-            'chicken' => '🐔',
-            'unicorn' => '🦄',
+        'some' => 'data',
+        'time' => \microtime(),
     ]);
     $synchronous = true;
     $header = [];
 
-    $stomp->send(Config::QUEUE_NAME, $message, $header, $synchronous);
+    $client->send(Config::QUEUE_NAME, $message, $header, $synchronous);
+    //$stomp->send('another-queue', 'hi', $header, $synchronous);
+
     print '.';
 }
 

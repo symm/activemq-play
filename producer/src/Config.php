@@ -2,24 +2,35 @@
 
 namespace Symm;
 
+use Stomp\Client;
+
 class Config
 {
-    const USERNAME = 'admin';
-    const PASSWORD = 'admin';
+    public const USERNAME = 'admin';
+    public const PASSWORD = 'admin';
 
-    const QUEUE_NAME = 'Consumer.something.VirtualTopic.chickens';
+    public const QUEUE_NAME = 'SomeQueueName';
 
-    const PRIMARY_SERVER = 'tcp://localhost:61613';
+    public const PRIMARY_SERVER = 'tcp://localhost:61613';
 
-    const SERVERS = [
+    public const SERVERS = [
         'tcp://localhost:61613',
         //'tcp://localhost:61614',
     ];
 
-    public static function getConnectionString()
+    public static function getConnectionString(): string
     {
-        $bits = '(' . implode(',', self::SERVERS) . ')';
+        $serverPool = '(' . implode(',', self::SERVERS) . ')';
 
-        return 'failover://' . $bits . '?randomize=false';
+        return 'failover://' . $serverPool . '?randomize=false';
+    }
+
+    public static function getConnection(?string $clientId): Client
+    {
+        $stomp = new Client(self::getConnectionString());
+        $stomp->setLogin(self::USERNAME, self::PASSWORD);
+        $stomp->setClientId($clientId);
+
+        return $stomp;
     }
 }
