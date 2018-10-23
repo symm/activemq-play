@@ -5,10 +5,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Stomp\Client;
 use Symm\Config;
 
-$stomp = new Client('tcp://localhost:61613');
+$stomp = new Client(Config::PRIMARY_SERVER);
 $stomp->getConnection();
 $stomp->setClientId('CHICKEN-PRODUCER');
-
 
 while (true) {
     $message = \json_encode([
