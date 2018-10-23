@@ -4,4 +4,12 @@
 http://localhost:8161/admin
 `admin:admin`
 
-`java -jar activemq-all-5.15.6.jar producer`
+`cd example-code`
+
+In seperate tabs:
+
+```
+php produce.php
+php consumer-a.php
+php consumer-ab.php
+```
