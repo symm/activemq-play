@@ -6,7 +6,7 @@ use Stomp\Client;
 use Symm\Config;
 
 $stomp = new Client(Config::getConnectionString());
-$stomp->getConnection();
+$stomp->setLogin(Config::USERNAME, Config::PASSWORD);
 $stomp->setClientId('CHICKEN-PRODUCER');
 
 while (true) {

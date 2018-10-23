@@ -4,6 +4,9 @@ namespace Symm;
 
 class Config
 {
+    const USERNAME = 'admin';
+    const PASSWORD = 'admin';
+
     const QUEUE_NAME = 'Consumer.something.VirtualTopic.chickens';
 
     const PRIMARY_SERVER = 'tcp://localhost:61613';
