@@ -1,6 +1,12 @@
 {
     "require": {
-        "stomp-php/stomp-php": "^4.4",
+      "roave/security-advisories": "dev-master",
+      "stomp-php/stomp-php": "^4.4",
       "ext-json": "*"
+    },
+  "autoload": {
+    "psr-4": {
+      "Symm\\": "src/"
     }
+  }
 }
