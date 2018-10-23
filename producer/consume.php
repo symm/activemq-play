@@ -7,7 +7,7 @@ use Symm\Config;
 
 use Stomp\Client;
 
-$client = new Client(Config::PRIMARY_SERVER);
+$client = new Client(Config::getConnectionString());
 $client->getConnection();
 $client->setClientId('CHICKEN-CONSUMER');
 

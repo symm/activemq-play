@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Stomp\Client;
 use Symm\Config;
 
-$stomp = new Client(Config::PRIMARY_SERVER);
+$stomp = new Client(Config::getConnectionString());
 $stomp->getConnection();
 $stomp->setClientId('CHICKEN-PRODUCER');
 
