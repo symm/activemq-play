@@ -19,5 +19,6 @@ while (true) {
     //sleep(1);
     print '.';
     $i++;
+    sleep(1);
 }
 
