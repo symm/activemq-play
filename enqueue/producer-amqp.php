@@ -2,9 +2,8 @@
 
 require_once __DIR__  . '/vendor/autoload.php';
 
-use Enqueue\AmqpLib\AmqpConnectionFactory;
-
-$factory = new AmqpConnectionFactory('amqp://admin:admin@localhost:5672/%2f');
+$factory = new Enqueue\AmqpBunny\AmqpConnectionFactory('amqp://admin:admin@localhost:5672/%2f');
+//$factory = new Enqueue\AmqpLib\AmqpConnectionFactory;'amqp://admin:admin@localhost:5672/%2f');
 
 $psrContext = $factory->createContext();
 $producer = $psrContext->createProducer();
@@ -18,7 +17,7 @@ while(true) {
 
     $i++;
     print '.';
-    sleep(1);
+    //sleep(1);
 }
 
 
