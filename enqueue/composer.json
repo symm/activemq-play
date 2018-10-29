@@ -1,6 +1,7 @@
 {
     "require": {
         "enqueue/stomp": "^0.8.40",
-        "enqueue/enqueue": "^0.8.40"
+        "enqueue/enqueue": "^0.8.40",
+        "enqueue/amqp-lib": "^0.8.40"
     }
 }
